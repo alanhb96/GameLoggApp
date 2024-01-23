@@ -1,7 +1,8 @@
 import loggData from '../../loggData.json'
 
-const LoggsDetailContainer = () => {
+const LoggsDetailReduced = () => {
     
+
     return (
         <div>
         </div>
@@ -9,4 +10,4 @@ const LoggsDetailContainer = () => {
 
 }
 
-export default LoggsDetailContainer
+export default LoggsDetailReduced
