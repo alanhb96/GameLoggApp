@@ -1,10 +1,11 @@
-import loggData from '../../loggData.json'
 
-const LoggsDetailContainer = () => {
+const LoggsDetailContainer = (props) => {
     
     return (
-        <div>
-        </div>
+        <>
+            <div>props.data.gameName</div>
+            <div>props.data.date</div>
+        </>
     )
 
 }

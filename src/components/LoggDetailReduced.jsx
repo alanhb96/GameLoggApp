@@ -1,11 +1,12 @@
-import loggData from '../../loggData.json'
 
-const LoggsDetailReduced = () => {
+const LoggsDetailReduced = (props) => {
     
 
     return (
-        <div>
-        </div>
+        <>
+            <div>props.data.gameName</div>
+            <div>props.data.date</div>
+        </>
     )
 
 }

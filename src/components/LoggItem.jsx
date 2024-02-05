@@ -1,9 +1,11 @@
-import LoggsContex from '../providers/LoggsContext'
+import {context} from '../providers/LoggsContext'
 import {useContext, useState} from 'react'
+import LoggDetailContainer from './LoggDetailContainer'
+import LoggDetailReduced from './LoggDetailReduced'
 
-const LoggItem = () =>{
+const LoggItem = (props) =>{
 
-    const context = useContext(LoggsContex)
+    //const contextValue = useContext(context)
 
     const [dropDown,useDropDown]=useState(false)
 
@@ -11,11 +13,17 @@ const LoggItem = () =>{
         <>
             dropDown
             :
-            <LoggDetailContainer/>
-            <button onClick={useDropDown(false)}>Pop</button>
+            //vertical info = vertical design
+            <section className=''>
+                <LoggDetailContainer data={props.item}/>
+                <button onClick={useDropDown(!dropDown)}>Pop</button>
+            </section>
             ?
-            <LoggDetailReduced/>
-            <button onClick={useDropDown(true)}>Drop</button>
+            //horizontal info = horizontal design
+            <section className=''>
+                <LoggDetailReduced data={props.item}/>
+                <button onClick={useDropDown(!dropDown)}>Drop</button>
+            </section>
         </>
     )
 

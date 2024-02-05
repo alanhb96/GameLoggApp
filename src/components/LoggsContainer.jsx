@@ -1,12 +1,15 @@
+import { useState } from "react";
 import LoggsForm from "./LoggsForm";
 import LoggsListContainer from "./LoggsListContainer";
 
-const LoggsContainer = () => {
+const LoggsContainer = (props) => {
+
+
 
     return(
         <>
             <LoggsForm/>
-            <LoggsListContainer /> //agregar un parametro que traiga cuantos logs haya en la dB 
+            <LoggsListContainer/>
         </>
     )
 

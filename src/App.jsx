@@ -1,4 +1,4 @@
-/* import LoggsContext from './providers/LoggsContext'*/
+import LoggsContext from './providers/LoggsContext'
 import ProfileContainer from './components/ProfileContainer'
 import LoggsContainer from './components/LoggsContainer'
 import NavBar from './components/NavBar'
@@ -11,11 +11,13 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar/>
-        <Routes>
-          <Route path='/' element={<LoggsContainer/>}/>
-          <Route path='/profile' element={<ProfileContainer/>}/>
-        </Routes>
+        <LoggsContext>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<LoggsContainer />} />
+            <Route path='/profile' element={<ProfileContainer />} />
+          </Routes>
+        </LoggsContext>
       </BrowserRouter>
     </>
   )

@@ -1,11 +1,16 @@
 import { useForm } from "react-hook-form";
+import {useContext} from 'react'
+import {context} from '../providers/LoggsContext'
 
 const LoggsForm = () => {
+
+    const contextValue = useContext(context)
 
     const { register, handleSubmit, watch, formState:{ errors }} = useForm()
 
     const onSubmit = (data) => {
         console.log(data)
+        contextValue.addLogg(data)
     }
     
     return(
