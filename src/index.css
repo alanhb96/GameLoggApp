@@ -11,10 +11,6 @@
 html,
 body,
 #root {
+  background-color: rgb(37, 54, 107);
   height: 100%;
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
 }

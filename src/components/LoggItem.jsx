@@ -5,25 +5,24 @@ import LoggDetailReduced from './LoggDetailReduced'
 
 const LoggItem = (props) =>{
 
-    //const contextValue = useContext(context)
-
     const [dropDown,useDropDown]=useState(false)
 
     return(
         <>
-            dropDown
-            :
+            {dropDown
+            ?
             //vertical info = vertical design
-            <section className=''>
+            (<section className=''>
                 <LoggDetailContainer data={props.item}/>
                 <button onClick={useDropDown(!dropDown)}>Pop</button>
-            </section>
-            ?
+            </section>)
+            :(
             //horizontal info = horizontal design
             <section className=''>
                 <LoggDetailReduced data={props.item}/>
                 <button onClick={useDropDown(!dropDown)}>Drop</button>
             </section>
+            )}
         </>
     )
 
