@@ -18,8 +18,8 @@ const LoggsContainer = (props) => {
         :
         (
         <div className="flex flex-col items-center justify-start h-full pt-16">
-            <button className="w-2/3 lg:w-1/5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={toggleFormVisibility}>New Logg Entry</button>
-            <LoggsListContainer />
+            <button className="mt-5 w-2/3 lg:w-1/5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={toggleFormVisibility}>New Logg Entry</button>
+            <LoggsListContainer formVisibility={isFormVisible}/>
         </div>          
         )}
     </>

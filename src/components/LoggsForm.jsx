@@ -9,7 +9,8 @@ const LoggsForm = ({ onClose }) => {
     const onSubmit = (data) => {
         console.log(data)
         contextValue.addLogg(data)
-    };
+        onClose()
+    }
 
     return (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
@@ -34,7 +35,7 @@ const LoggsForm = ({ onClose }) => {
                     <label htmlFor="comments">Comments:</label>
                     <textarea id="comments" {...register('comments')} className="bg-gray-200 border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:bg-white focus:border-blue-500" />
 
-                    <input className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" value='Submit' type="submit" onClick={onClose} />
+                    <input className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" value='Submit' type="submit"/>
                 </form>
             </div>
         </div>

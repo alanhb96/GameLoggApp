@@ -3,12 +3,12 @@ import LoggItem from "./LoggItem"
 const LoggsList = (props) => {
     
     return (
-        <section className="">
+        <section className="mt-5">
             {props.loggs.map((item)=>(
-                <div className="">
+                <div key={item.id} className="mt-5">
                     <LoggItem item={item}/>
                 </div>
-            ))}
+            ))} 
         </section>
     )
 
