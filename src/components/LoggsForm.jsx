@@ -1,14 +1,57 @@
 import { useForm } from "react-hook-form"
 import { useContext } from 'react'
 import { context } from '../providers/LoggsContext'
+import { db } from './firebase/firebase'
+import firebase from 'firebase/app'
 
 const LoggsForm = ({ onClose }) => {
     const contextValue = useContext(context)
     const { register, handleSubmit, formState: { errors } } = useForm()
 
+    const postLog = async (logData) => {
+        try {
+          // Get the currently authenticated user
+          const user = firebase.auth().currentUser
+          if (user) {
+            // Add the user's ID to the log data
+            logData.userId = user.uid;
+            await db.collection('logs').add(logData)
+            console.log('Log posted successfully')
+          } else {
+            console.error('No user signed in')
+          }
+        } catch (error) {
+          console.error('Error posting log:', error)
+        }
+    }
+
+    /*  const handleDbPost = async (event) => {
+        event.preventDefault();
+        const logData = {
+          // Get log data from form fields
+          gameName: event.target.gameName.value,
+          date: event.target.date.value,
+          playerCount: event.target.playerCount.value,
+          winner: event.target.winner.value,
+          points: event.target.points.value,
+          comments: event.target.comments.value,
+        };
+        await postLog(logData);
+        } */
+
     const onSubmit = (data) => {
         console.log(data)
-        contextValue.addLogg(data)
+        //contextValue.addLogg(data)
+        const logData = {
+            // Get log data from form fields
+            gameName: data.target.gameName.value,
+            date: data.target.date.value,
+            playerCount: data.target.playerCount.value,
+            winner: data.target.winner.value,
+            points: data.target.points.value,
+            comments: data.target.comments.value,
+          };
+        postLog(logData)
         onClose()
     }
 

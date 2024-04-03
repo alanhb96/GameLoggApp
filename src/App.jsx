@@ -21,6 +21,7 @@ function App() {
     const unsubscribe = onAuthStateChanged(auth, (user)=>{
       if(user){
         setUser(user)
+        contextValue.userId(user)
         setIsFetching(false)
         return
       }
