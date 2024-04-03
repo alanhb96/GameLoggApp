@@ -6,6 +6,7 @@ const Provider = context.Provider
 const LoggsContext = (props) =>  {
 
     const [loggList,setLoggList]= useState([])
+    const [logedIn,setLogedIn]= useState(false)
 
     const handleAddLogg = (data) => {
         const arrayCopy = [...loggList,data]
@@ -15,6 +16,7 @@ const LoggsContext = (props) =>  {
     const contextValue = {
         addLogg: handleAddLogg,
         loggEntries: loggList,
+        isLogedIn: logedIn,
     } 
 
     return (
